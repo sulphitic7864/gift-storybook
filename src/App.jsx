@@ -144,7 +144,7 @@ export default function App() {
               }}
             >
               {page.title && (
-                <h2 className="text-lg md:text-2xl font-bold mb-10">{page.title}</h2>
+                <h2 className="text-lg md:text-2xl font-bold mb-4 md:mb-10">{page.title}</h2>
               )}
 
               {page.images && (
@@ -154,7 +154,7 @@ export default function App() {
                       key={idx}
                       src={img}
                       alt="page"
-                      className="w-14 h-14 sm:w-24 sm:h-24 md:w-80 md:h-60 object-cover rounded-lg shadow"
+                      className="w-20 h-14 sm:w-24 sm:h-24 md:w-80 md:h-60 object-cover rounded-lg shadow"
                     />
                   ))}
                 </div>
