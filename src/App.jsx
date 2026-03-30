@@ -55,65 +55,64 @@ export default function App() {
       </section>
 
       {/* Book Section */}
-      <section className="min-h-[95vh] flex flex-col items-center justify-center bg-gradient-to-b from-rose-100 to-pink-200 px-[3vw]">
+      <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-rose-100 to-pink-200 px-[3vw]">
 
-        const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+        <HTMLFlipBook
+          ref={bookRef}
+          width={400}
+          height={500}
+          size="stretch"
+          drawShadow={true}
+          maxShadowOpacity={1}
+          showCover={true}
+          mobileScrollSupport={true}
+          className="shadow-5xl"
+          onFlip={(e) => {
+            const i = e.data;
+            setIndex(i);
 
-<HTMLFlipBook
-  ref={bookRef}
-  width={isMobile ? window.innerWidth * 0.9 : 500}
-  height={isMobile ? window.innerHeight * 0.95 : 600}
-  size="stretch"
-  drawShadow={true}
-  maxShadowOpacity={0.8}
-  showCover={true}
-  mobileScrollSupport={true}
-  className="shadow-2xl max-h-[95vh]"
-  onFlip={(e) => {
-    const i = e.data;
-    setIndex(i);
+            // ✅ FIX: mark both visible pages (spread)
+            markVisited(i);
+            markVisited(i + 1);
 
-    markVisited(i);
-    markVisited(i + 1);
+            playSound();
+          }}
+        >
+          {pages.map((page, i) => (
+            <div
+              key={page.id}
+              className="relative bg-white p-8 flex flex-col items-center justify-center text-right rounded-2xl border"
+              dir="rtl"
+              style={{
+                boxShadow:
+                  "inset 0 0 40px rgba(0,0,0,0.08), 0 10px 30px rgba(0,0,0,0.2)",
+              }}
+            >
+              {page.title && (
+                <h2 className="text-2xl font-bold mb-4">{page.title}</h2>
+              )}
 
-    playSound();
-  }}
->
-  {pages.map((page, i) => (
-    <div
-      key={page.id}
-      className="relative bg-white p-8 flex flex-col items-center justify-center text-right rounded-2xl border"
-      dir="rtl"
-      style={{
-        boxShadow:
-          "inset 0 0 40px rgba(0,0,0,0.08), 0 10px 30px rgba(0,0,0,0.2)",
-      }}
-    >
-      {page.title && (
-        <h2 className="text-2xl font-bold mb-4">{page.title}</h2>
-      )}
+              {page.images && (
+                <div className="flex gap-2 mb-4 flex-wrap justify-center">
+                  {page.images.map((img, idx) => (
+                    <img
+                      key={idx}
+                      src={img}
+                      alt="page"
+                      className="w-24 h-24 object-cover rounded-lg shadow"
+                    />
+                  ))}
+                </div>
+              )}
 
-      {page.images && (
-        <div className="flex gap-2 mb-4 flex-wrap justify-center">
-          {page.images.map((img, idx) => (
-            <img
-              key={idx}
-              src={img}
-              alt="page"
-              className="w-24 h-24 object-cover rounded-lg shadow"
-            />
+              <p className="text-lg text-center leading-loose">{page.body}</p>
+
+              <div className="absolute bottom-4 left-0 right-0 text-center text-sm text-gray-400">
+                {i + 1}
+              </div>
+            </div>
           ))}
-        </div>
-      )}
-
-      <p className="text-lg text-center leading-loose">{page.body}</p>
-
-      <div className="absolute bottom-4 left-0 right-0 text-center text-sm text-gray-400">
-        {i + 1}
-      </div>
-    </div>
-  ))}
-</HTMLFlipBook>
+        </HTMLFlipBook>
 
         {/* Controls */}
         <div className="flex items-center gap-6 mt-6">
