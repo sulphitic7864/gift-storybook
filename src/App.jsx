@@ -1,3 +1,4 @@
+
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
@@ -171,9 +172,6 @@ export default function App() {
             maxWidth={1000}
             minHeight={400}
             maxHeight={1533}
-            usePortrait={false}
-            startPage={0}
-            drawShadow={true}
             maxShadowOpacity={0.5}
             showCover={true}
             mobileScrollSupport={true}
@@ -181,12 +179,11 @@ export default function App() {
               const i = e.data;
               setIndex(i);
               markVisited(i);
-              markVisited(i);
-              if (i + 1 < pages.length) markVisited(i + 1);
+              markVisited(i + 1);
               playSound();
             }}
             ref={bookRef}
-            className="book-main ltr"
+            className="book-main"
           >
             {/* FRONT COVER */}
             <div className="w-full h-full">
@@ -258,7 +255,7 @@ export default function App() {
 
       {/* Gift Section */}
       <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-pink-200 to-rose-300 relative overflow-hidden">
-        {/* Background floating icons */}
+{/* Background floating icons */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {Array.from({ length: 35 }).map((_, i) => {
             const icons = ["👋", "✨", "💖", "🎉", "🌸", "💫", "🤍"];
