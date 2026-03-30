@@ -246,7 +246,44 @@ export default function App() {
 
       {/* Gift Section */}
       <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-pink-200 to-rose-300 relative overflow-hidden">
+{/* Background floating icons */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {Array.from({ length: 35 }).map((_, i) => {
+            const icons = ["👋", "✨", "💖", "🎉", "🌸", "💫", "🤍"];
 
+            // FIX: distribute using percentages (NOT window size)
+            const left = Math.random() * 100;   // %
+            const top = Math.random() * 100;    // %
+            const size = Math.random() * 24 + 16;
+
+            return (
+              <motion.span
+                key={i}
+                className="absolute"
+                style={{
+                  left: `${left}%`,
+                  top: `${top}%`,
+                  fontSize: `${size}px`,
+                }}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{
+                  y: [0, -80, -160],
+                  opacity: [0, 1, 0],
+                  rotate: [0, 180, 360],
+                  scale: [0.5, 1.2, 0.8],
+                }}
+                transition={{
+                  duration: Math.random() * 6 + 5,
+                  repeat: Infinity,
+                  delay: Math.random() * 5,
+                  ease: "easeInOut",
+                }}
+              >
+                {icons[i % icons.length]}
+              </motion.span>
+            );
+          })}
+        </div>
         {!allVisited ? (
           <p className="text-lg">📖 أكمل قراءة جميع الصفحات لفتح الهدية</p>
         ) : (
