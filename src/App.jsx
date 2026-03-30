@@ -14,7 +14,7 @@ const pages = [
     id: 2,
     title: "البداية",
     body: "كل قصة تبدأ بخطوة صغيرة، لكن بعض الخطوات تغيّر كل شيء.",
-    images: ["https://images.unsplash.com/photo-1520975928316-456b3f3b4b3c"]
+    images: ["https://images.unsplash.com/photo-1470770841072-f978cf4d019e"]
   },
   {
     id: 3,
@@ -115,7 +115,7 @@ export default function App() {
         <HTMLFlipBook
           ref={bookRef}
           width={400}
-          height={1000}
+          height={600}
           size="stretch"
           drawShadow={true}
           maxShadowOpacity={1}
@@ -136,7 +136,7 @@ export default function App() {
           {pages.map((page, i) => (
             <div
               key={page.id}
-              className="relative bg-white p-8 flex flex-col items-center justify-center text-right rounded-2xl border"
+              className="min-h-full relative bg-white p-10 flex flex-col items-center justify-center text-right rounded-2xl border"
               dir="rtl"
               style={{
                 boxShadow:
@@ -144,7 +144,7 @@ export default function App() {
               }}
             >
               {page.title && (
-                <h2 className="text-lg md:text-2xl font-bold mb-4">{page.title}</h2>
+                <h2 className="text-lg md:text-2xl font-bold mb-10">{page.title}</h2>
               )}
 
               {page.images && (
@@ -154,7 +154,7 @@ export default function App() {
                       key={idx}
                       src={img}
                       alt="page"
-                      className="w-14 h-14 sm:w-24 sm:h-24 md:w-40 md:h-40 object-cover rounded-lg shadow"
+                      className="w-14 h-14 sm:w-24 sm:h-24 md:w-80 md:h-60 object-cover rounded-lg shadow"
                     />
                   ))}
                 </div>
