@@ -55,18 +55,18 @@ export default function App() {
       </section>
 
       {/* Book Section */}
-      <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-rose-100 to-pink-200 px-[3vw]">
+      <section className="min-h-[95vh] flex flex-col items-center justify-center bg-gradient-to-b from-rose-100 to-pink-200 px-[3vw]">
 
         <HTMLFlipBook
           ref={bookRef}
-          width={500}
-          height={600}
+          width={window.innerWidth < 640 ? window.innerWidth * 0.9 : 500}
+          height={window.innerWidth < 640 ? window.innerHeight * 0.95 : 600}
           size="stretch"
           drawShadow={true}
           maxShadowOpacity={0.8}
           showCover={true}
           mobileScrollSupport={true}
-          className="shadow-2xl"
+          className="shadow-2xl max-h-[95vh]"
           onFlip={(e) => {
             const i = e.data;
             setIndex(i);
