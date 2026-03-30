@@ -4,11 +4,66 @@ import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import HTMLFlipBook from "react-pageflip";
 
 const pages = [
-  { id: 1, title: "مرحبًا", body: "مرحبًا بك في قصتي..." },
-  { id: 2, title: "رسالة", body: "هذه رسالة كتبتها لك من القلب.", images: ["https://via.placeholder.com/120"] },
-  { id: 3, body: "كل صفحة تحمل شعورًا خاصًا..." },
-  { id: 4, title: "أمنية", body: "أتمنى أن تجلب لك السعادة ❤️", images: ["https://via.placeholder.com/120", "https://via.placeholder.com/120"] },
-  { id: 5, body: "النهاية... لكن القصة مستمرة ✨" }
+  {
+    id: 1,
+    title: "مرحبًا",
+    body: "مرحبًا بك في هذه القصة... هناك شيء كُتب لك فقط.",
+    images: ["https://images.unsplash.com/photo-1529156069898-49953e39b3ac"]
+  },
+  {
+    id: 2,
+    title: "البداية",
+    body: "كل قصة تبدأ بخطوة صغيرة، لكن بعض الخطوات تغيّر كل شيء.",
+    images: ["https://images.unsplash.com/photo-1520975928316-456b3f3b4b3c"]
+  },
+  {
+    id: 3,
+    title: "الرسالة",
+    body: "أردت فقط أن أقول إن وجودك في الحياة يحدث فرقًا.",
+    images: ["https://images.unsplash.com/photo-1511988617509-a57c8a288659"]
+  },
+  {
+    id: 4,
+    title: "الذكريات",
+    body: "بعض اللحظات تبقى في القلب حتى لو مرّ عليها الزمن.",
+    images: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e"]
+  },
+  {
+    id: 5,
+    title: "الهدوء",
+    body: "في لحظات الهدوء نفهم أنفسنا أكثر.",
+    images: ["https://images.unsplash.com/photo-1470770841072-f978cf4d019e"]
+  },
+  {
+    id: 6,
+    title: "القوة",
+    body: "أنت أقوى مما تتخيل، حتى في اللحظات الصعبة.",
+    images: ["https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"]
+  },
+  {
+    id: 7,
+    title: "الأمل",
+    body: "دائمًا هناك ضوء صغير ينتظرك في نهاية الطريق.",
+    images: ["https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"]
+  },
+  {
+    id: 8,
+    title: "الحلم",
+    body: "لا تتوقف عن الحلم، فالأحلام تصنع المستقبل.",
+    images: ["https://images.unsplash.com/photo-1520975916090-3105956dac38"]
+  },
+  {
+    id: 9,
+    title: "الاقتراب من النهاية",
+    body: "كل صفحة قرأتها كانت خطوة نحو هذه اللحظة.",
+    images: ["https://images.unsplash.com/photo-1519681393784-d120267933ba"]
+  },
+  {
+    id: 10,
+    title: "النهاية",
+    body: "النهاية ليست نهاية فعلاً... بل بداية لشيء أجمل ✨",
+    images: ["https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"]
+  }
 ];
 
 export default function App() {
@@ -60,7 +115,7 @@ export default function App() {
         <HTMLFlipBook
           ref={bookRef}
           width={400}
-          height={700}
+          height={1000}
           size="stretch"
           drawShadow={true}
           maxShadowOpacity={1}
