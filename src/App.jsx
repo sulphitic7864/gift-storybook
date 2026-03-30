@@ -7,7 +7,7 @@ const pages = [
   { id: 1, title: "مرحبًا", body: "مرحبًا بك في قصتي..." },
   { id: 2, title: "رسالة", body: "هذه رسالة كتبتها لك من القلب.", images: ["https://via.placeholder.com/120"] },
   { id: 3, body: "كل صفحة تحمل شعورًا خاصًا..." },
-  { id: 4, title: "أمنية", body: "أتمنى أن تجلب لك السعادة ❤️", images: ["https://via.placeholder.com/120","https://via.placeholder.com/120"] },
+  { id: 4, title: "أمنية", body: "أتمنى أن تجلب لك السعادة ❤️", images: ["https://via.placeholder.com/120", "https://via.placeholder.com/120"] },
   { id: 5, body: "النهاية... لكن القصة مستمرة ✨" }
 ];
 
@@ -60,7 +60,7 @@ export default function App() {
         <HTMLFlipBook
           ref={bookRef}
           width={400}
-          height={500}
+          height={700}
           size="stretch"
           drawShadow={true}
           maxShadowOpacity={1}
@@ -89,7 +89,7 @@ export default function App() {
               }}
             >
               {page.title && (
-                <h2 className="text-2xl font-bold mb-4">{page.title}</h2>
+                <h2 className="text-lg md:text-2xl font-bold mb-4">{page.title}</h2>
               )}
 
               {page.images && (
@@ -99,13 +99,13 @@ export default function App() {
                       key={idx}
                       src={img}
                       alt="page"
-                      className="w-24 h-24 object-cover rounded-lg shadow"
+                      className="w-14 h-14 sm:w-24 sm:h-24 md:w-40 md:h-40 object-cover rounded-lg shadow"
                     />
                   ))}
                 </div>
               )}
 
-              <p className="text-lg text-center leading-loose">{page.body}</p>
+              <p className="text-base md:text-lg text-center leading-loose">{page.body}</p>
 
               <div className="absolute bottom-4 left-0 right-0 text-center text-sm text-gray-400">
                 {i + 1}
