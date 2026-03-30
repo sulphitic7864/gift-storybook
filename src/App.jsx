@@ -136,7 +136,7 @@ export default function App() {
           {pages.map((page, i) => (
             <div
               key={page.id}
-              className="min-h-full relative bg-white p-10 flex flex-col items-center justify-center text-right rounded-2xl border"
+              className="min-h-full relative bg-white p-4 md:p-10 flex flex-col items-center justify-center text-right rounded-2xl border"
               dir="rtl"
               style={{
                 boxShadow:
