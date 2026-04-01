@@ -444,11 +444,11 @@ export default function App() {
                 <motion.div
                   className="text-10xl z-10 mt-10"
                 >
-                  <img
+                  {/* <img
                         src="/emot_500.gif"
                         alt="memory"
                         className="w-full h-70 md:h-80 object-cover rounded-md shadow-md sepia-[0.3]"
-                      />
+                      /> */}
                 </motion.div>
 
                 {/* Burst emojis */}
