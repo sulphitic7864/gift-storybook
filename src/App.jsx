@@ -442,12 +442,13 @@ export default function App() {
 
                 {/* Center celebration */}
                 <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.6 }}
-                  className="text-7xl animate-bounce z-10 mt-10"
+                  className="text-10xl z-10 mt-10"
                 >
-                  🎉💖✨
+                  <img
+                        src="/emot_500.gif"
+                        alt="memory"
+                        className="w-full h-70 md:h-80 object-cover rounded-md shadow-md sepia-[0.3]"
+                      />
                 </motion.div>
 
                 {/* Burst emojis */}
